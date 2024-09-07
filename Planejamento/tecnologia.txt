@@ -1,0 +1,6 @@
+# Tecnologias
+- NextJS (com SSR)
+- Prisma (ORM)
+- MySQL / PostgreSQL (banco de dados)
+- API em RESTful
+- TypeScript

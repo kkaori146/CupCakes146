@@ -1,3 +1,4 @@
+import { ProductItem } from '../../components/ProductItem';
 import { Banner } from '../../components/Banner';
 import { SearchInput } from '../../components/SearchInput';
 import styles from '../../styles/Home.module.css';
@@ -28,13 +29,18 @@ const Home = () => {
           <SearchInput
             mainColor = "#8B008B"
             onSearch={handleSearch}
-          
           />
-
         </div>
-
       </header>
       <Banner/>
+      <div className={styles.grid}>
+        <ProductItem/>
+
+        <ProductItem/>
+        
+        <ProductItem/>
+
+      </div>
     </div>
   );
 }

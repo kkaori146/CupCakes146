@@ -34,12 +34,53 @@ const Home = () => {
       </header>
       <Banner/>
       <div className={styles.grid}>
-        <ProductItem/>
+        <ProductItem
+          data={{
+            id:1,
+            image:'/tmp/cupcake_amarelo.png', 
+            categoryName: "Festa", 
+            name: 'Yellow Dream', 
+            price: 'R$12,00' 
+          }}
+          mainColor='#8B008B'
+          secondColor='#FFF9F2'
+        />
 
-        <ProductItem/>
-        
-        <ProductItem/>
+        <ProductItem
+          data={{
+            id:2,
+            image:'/tmp/cupcake_rocher.png', 
+            categoryName: "Festa", 
+            name: 'Rocher Party', 
+            price: 'R$17,00' 
+          }}
+          mainColor='#8B008B'
+          secondColor='#FFF9F2'
+        />
 
+<ProductItem
+          data={{
+            id:3,
+            image:'/tmp/cupcake_red.png', 
+            categoryName: "Festa", 
+            name: 'Blood Rose', 
+            price: 'R$16,00' 
+          }}
+          mainColor='#8B008B'
+          secondColor='#FFF9F2'
+        />
+
+<ProductItem
+          data={{
+            id:4,
+            image:'/tmp/cupcake_rainbow.png', 
+            categoryName: "Festa", 
+            name: 'Rainbow Unicorn', 
+            price: 'R$22,00'
+          }}
+          mainColor='#8B008B'
+          secondColor='#FFF9F2'
+        />
       </div>
     </div>
   );

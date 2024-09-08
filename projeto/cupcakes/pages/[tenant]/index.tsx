@@ -2,6 +2,8 @@ import { ProductItem } from '../../components/ProductItem';
 import { Banner } from '../../components/Banner';
 import { SearchInput } from '../../components/SearchInput';
 import styles from '../../styles/Home.module.css';
+import { GetServerSideProps } from 'next';
+import { useApi } from '../../libs/useApi';
 
 const Home = () => {
   const handleSearch = (searchValue: string) => {
@@ -87,3 +89,19 @@ const Home = () => {
 }
 
 export default Home;
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const {tenant: tenantSlug} = context.query;
+  const api = useApi();
+
+  // Get Tenant
+  const tenant = await api.getTenant(tenantSlug as string);
+  if (!tenant) {
+    return {redirect: {destination: '/',permanent: false}}
+  }
+  return {
+    props: {
+
+    }
+  }
+}

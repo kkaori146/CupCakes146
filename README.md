@@ -1,8 +1,11 @@
 - Iniciar o programa no VSCode
 npm run dev
 
-- localhos do projeto
+- localhost do projeto (Tela Principal)
 http://localhost:3000/cupcakes146
+
+- Tela de Login
+http://localhost:3000/cupcakes146/login
 
 - Bibliotecas instaladas
 

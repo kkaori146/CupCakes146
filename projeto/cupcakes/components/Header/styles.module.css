@@ -18,3 +18,15 @@
     justify-content: center;
     align-items: center;
 }
+
+.title {
+    font-weight: 600;
+    font-size: 24px;
+    color: #1B1B1B;
+}
+
+.subtitle {
+    font-weight: 400;
+    font-size: 13px;
+    color: #647d8b;
+}

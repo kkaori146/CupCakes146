@@ -1,1 +1,4 @@
-.container {}
+.container {
+    background-color: #FFF;
+    padding-top: 50px;
+}

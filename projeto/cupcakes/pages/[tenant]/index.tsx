@@ -6,6 +6,7 @@ import { GetServerSideProps } from 'next';
 import { useApi } from '../../libs/useApi';
 import { useAppContext } from '@/contexts/AppContext';
 import { useEffect } from 'react';
+import { Tenant } from '../../types/Tenant';
 
 const Home = (data: Props) => {
   const { tenant, setTenant } = useAppContext();
@@ -35,10 +36,7 @@ const Home = (data: Props) => {
           </div>
         </div>
         <div className={styles.headerBottom}>
-          <SearchInput
-            mainColor = "#8B008B"
-            onSearch={handleSearch}
-          />
+          <SearchInput onSearch={handleSearch}/>
         </div>
       </header>
       <Banner/>
@@ -51,8 +49,6 @@ const Home = (data: Props) => {
             name: 'Yellow Dream', 
             price: 'R$12,00' 
           }}
-          mainColor='#8B008B'
-          secondColor='#FFF9F2'
         />
 
         <ProductItem
@@ -63,8 +59,6 @@ const Home = (data: Props) => {
             name: 'Rocher Party', 
             price: 'R$17,00' 
           }}
-          mainColor='#8B008B'
-          secondColor='#FFF9F2'
         />
 
 <ProductItem
@@ -75,8 +69,6 @@ const Home = (data: Props) => {
             name: 'Blood Rose', 
             price: 'R$16,00' 
           }}
-          mainColor='#8B008B'
-          secondColor='#FFF9F2'
         />
 
 <ProductItem
@@ -87,8 +79,6 @@ const Home = (data: Props) => {
             name: 'Rainbow Unicorn', 
             price: 'R$22,00'
           }}
-          mainColor='#8B008B'
-          secondColor='#FFF9F2'
         />
       </div>
     </div>
@@ -108,11 +98,11 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   // Get Tenant
   const tenant = await api.getTenant(tenantSlug as string);
   if (!tenant) {
-    return {redirect: {destination: '/',permanent: false}}
+    return {redirect: { destination: '/',permanent: false}}
   }
   return {
     props: {
-
+      tenant
     }
   }
 }

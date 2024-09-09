@@ -7,16 +7,16 @@ export const useApi = () => ({
                 return {
                     slug: 'cupcakes146',
                     name: 'CupCakes146',
-                    mainColor: '#9400d3',
-                    secondColor: '#00FF00'
+                    mainColor: '#8B008B',
+                    secondColor: '#8B008B'
                 }
                 break;
             case 'pizzas146':
                 return {
                     slug: 'pizza146',
                     name: 'Pizza146',
-                    mainColor: '#0000FF',
-                    secondColor: '#00FF00'
+                    mainColor: '#8B008B',
+                    secondColor: '#8B008B'
                 }
                 break;
             default: return false;

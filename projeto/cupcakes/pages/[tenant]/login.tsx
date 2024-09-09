@@ -1,10 +1,11 @@
 import styles from '../../styles/Home.module.css';
 import { GetServerSideProps } from 'next';
 import { useApi } from '../../libs/useApi';
-import { useAppContext } from '@/contexts/AppContext';
+import { useAppContext } from '../../contexts/AppContext';
 import { useEffect } from 'react';
 import { Tenant } from '../../types/Tenant';
 import Head from 'next/head';
+import { Header } from '../../components/Header';
 
 const Login = (data: Props) => {
   const { tenant, setTenant } = useAppContext();
@@ -19,6 +20,8 @@ const Login = (data: Props) => {
             <title>Login | {data.tenant.name}</title>
           
           </Head>
+
+          <Header/>
      
 
     </div>

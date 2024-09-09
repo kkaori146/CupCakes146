@@ -3,9 +3,9 @@ import { Banner } from '../../components/Banner';
 import { SearchInput } from '../../components/SearchInput';
 import styles from '../../styles/Home.module.css';
 import { GetServerSideProps } from 'next';
-import { useApi } from '../../libs/useApi';
+import { getTenantResponse, useApi } from '../../libs/useApi';
 
-const Home = () => {
+const Home = (data: Props) => {
   const handleSearch = (searchValue: string) => {
     console.log(`Você está buscando por: ${searchValue}`);
 
@@ -89,6 +89,10 @@ const Home = () => {
 }
 
 export default Home;
+
+type Props = {
+  tenant: getTenantResponse
+}
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const {tenant: tenantSlug} = context.query;

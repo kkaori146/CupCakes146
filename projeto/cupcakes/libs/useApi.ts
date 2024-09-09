@@ -16,7 +16,7 @@ export const useApi = () => ({
                 break;
             case 'pizzas146':
                 return {
-                    name: 'CupCakes146',
+                    name: 'Pizza146',
                     mainColor: '#0000FF',
                     secondColor: '#00FF00'
                 }

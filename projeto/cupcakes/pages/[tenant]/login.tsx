@@ -7,6 +7,7 @@ import { Tenant } from '../../types/Tenant';
 import Head from 'next/head';
 import { Header } from '../../components/Header';
 import { InputField } from '../../components/InputField';
+import { Button } from '../../components/Button';
 
 const Login = (data: Props) => {
   const { tenant, setTenant } = useAppContext();
@@ -18,6 +19,9 @@ const Login = (data: Props) => {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const handleSubmit = () => {
+
+  }
 
   return (
     <div className= {styles.container}>
@@ -44,6 +48,17 @@ const Login = (data: Props) => {
             value={password}
             onChange={setPassword}
             password
+          />
+          <Button
+            color={data.tenant.mainColor}
+            label="Entrar"
+            onClick={handleSubmit}
+            fill
+          />
+          <Button
+            color={data.tenant.mainColor}
+            label="Entrar"
+            onClick={handleSubmit}
           />
     </div>
   );

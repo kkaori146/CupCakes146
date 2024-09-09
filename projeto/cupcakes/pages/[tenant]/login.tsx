@@ -20,14 +20,15 @@ const Login = (data: Props) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const handleSubmit = () => {
-
+  }
+  const handleSignUp = () => {
+    
   }
 
   return (
     <div className= {styles.container}>
           <Head>
             <title>Login | {data.tenant.name}</title>
-          
           </Head>
 
           <Header
@@ -35,31 +36,49 @@ const Login = (data: Props) => {
             backHref={`/${data.tenant.slug}`}
           />
 
-          <InputField
-            color={data.tenant.mainColor}
-            placeholder='Digite seu e-mail'
-            value={email}
-            onChange={setEmail}
-          />
+          <div className={styles.header}>{data.tenant.name}</div>
 
-          <InputField
-            color={data.tenant.mainColor}
-            placeholder='Digite sua senha'
-            value={password}
-            onChange={setPassword}
-            password
-          />
-          <Button
-            color={data.tenant.mainColor}
-            label="Entrar"
-            onClick={handleSubmit}
-            fill
-          />
-          <Button
-            color={data.tenant.mainColor}
-            label="Entrar"
-            onClick={handleSubmit}
-          />
+          <div className={styles.subtitle}>Use suas credenciais para realizar o login</div>
+
+          <div className={styles.formArea}>
+            
+            <div className={styles.inputArea}>
+              <InputField
+                color={data.tenant.mainColor}
+                placeholder='Digite seu e-mail'
+                value={email}
+                onChange={setEmail}
+              />
+            </div>
+
+            <div className={styles.inputArea}>
+              <InputField
+                color={data.tenant.mainColor}
+                placeholder='Digite sua senha'
+                value={password}
+                onChange={setPassword}
+                password
+              />
+            </div>
+            <div className={styles.inputArea}>
+              <Button
+                color={data.tenant.mainColor}
+                label="Entrar"
+                onClick={handleSubmit}
+                fill
+              />
+            </div>
+          </div>
+          <div className={styles.forgetArea}>
+            Esqueceu sua senha? Clique aqui
+          </div>
+          <div className={styles.signupArea}>
+            <Button
+              color={data.tenant.mainColor}
+              label="Quero Me Cadastrar"
+              onClick={handleSignUp}
+            />
+          </div>
     </div>
   );
 }

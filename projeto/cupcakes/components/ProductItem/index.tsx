@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { Product } from '../../types/Products';
 import styles from './styles.module.css';
-import { useAppContext } from '@/contexts/AppContext';
+import { useAppContext } from '../../contexts/AppContext';
 
 type Props = {
     data: Product;
@@ -20,7 +20,7 @@ export const ProductItem = ({data}: Props) => {
                     </div>
                     <div className={styles.catName}>{data.categoryName}</div>
                     <div className={styles.name}>{data.name}</div>
-                    <div className={styles.price} style={{color: tenant?.mainColor}}>{data.price}</div>
+                    <div className={styles.price} style={{color: tenant?.mainColor}}>R${data.price.toFixed(2)}</div>
                 </div>
             </a>
         </Link>

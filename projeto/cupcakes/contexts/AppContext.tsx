@@ -25,7 +25,7 @@ export const AppContextProvider = ({ children }: Props) => {
         <appContext.Provider value={{tenant, setTenant}}>
             {children}
         </appContext.Provider>
-    )
+    );
 }
 
 

@@ -7,7 +7,7 @@ import { useApi } from '../../libs/useApi';
 import { useAppContext } from '../../contexts/AppContext';
 import { useEffect, useState } from 'react';
 import { Tenant } from '../../types/Tenant';
-import { Product } from '../../types/Products';
+import { Product } from '../../types/Product';
 
 const Home = (data: Props) => {
   const { tenant, setTenant } = useAppContext();

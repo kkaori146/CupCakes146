@@ -4,7 +4,7 @@ import { SearchInput } from '../../components/SearchInput';
 import styles from '../../styles/Home.module.css';
 import { GetServerSideProps } from 'next';
 import { useApi } from '../../libs/useApi';
-import { useAppContext } from '../../contexts/AppContext';
+import { useAppContext } from '../../contexts/app';
 import { useEffect, useState } from 'react';
 import { Tenant } from '../../types/Tenant';
 import { Product } from '../../types/Product';

@@ -11,7 +11,7 @@ const TEMPORARYoneProduct: Product={
 }
 
 export const useApi = (tenantSlug: string) => ({
-    getTenant: (): boolean | Tenant => {
+    getTenant: async () => {
         switch(tenantSlug) {
             case 'cupcakes146':
                 return {
@@ -32,7 +32,7 @@ export const useApi = (tenantSlug: string) => ({
             default: return false;
         }
     },
-    getAllProducts: () => {
+    getAllProducts: async () => {
         let products = [];
         for (let q =0; q <6; q++) {
             products.push(TEMPORARYoneProduct);
@@ -40,7 +40,7 @@ export const useApi = (tenantSlug: string) => ({
         return products;
     },
 
-    getProducts: (id: string) => {
+    getProducts: async (id: string) => {
         return TEMPORARYoneProduct;
     }
 });

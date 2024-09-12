@@ -7,6 +7,8 @@ import { useEffect, useState } from 'react';
 import { Tenant } from '../../../types/Tenant';
 import { Product } from '../../../types/Product';
 import { Header } from '../../../components/Header';
+import { Button } from '../../../components/Button';
+import { useFormatter } from '../../../libs/useFormatter';
 
 
 const Product = (data: Props) => {
@@ -16,6 +18,8 @@ const Product = (data: Props) => {
     setTenant(data.tenant);
   }, []);
 
+    const formatter = useFormatter();
+    const handleAddToCart = () => {};
 
   return (
     <div className= {styles.container}>  
@@ -34,6 +38,31 @@ const Product = (data: Props) => {
             <div className={styles.headerBg} style={{backgroundColor: data.tenant.mainColor}}></div>
             <div className={styles.productImage}>
                 <img src={data.product.image} alt=""/>
+            </div>
+
+            <div className={styles.category}>{data.product.categoryName}</div>
+            <div className={styles.title} style={{borderBottomColor: data.tenant.mainColor}}>{data.product.name}</div>
+            <div className={styles.line}></div>
+
+            <div className={styles.description}>{data.product.description}</div>
+
+            <div className={styles.qtText}>Quantidade</div>
+            <div className={styles.area}>
+                <div className={styles.areaLeft}>...</div>
+                <div 
+                    className={styles.areaRight}
+                    style={{color:data.tenant.mainColor}}
+                >{formatter.formatPrice(data.product.price)}</div>
+            </div>
+
+            <div className={styles.buttonArea}>
+                <Button
+                    color={data.tenant.mainColor}
+                    label="Adicionar a sacola"
+                    onClick={handleAddToCart}
+                    fill
+                />
+            
             </div>
     </div>
   );

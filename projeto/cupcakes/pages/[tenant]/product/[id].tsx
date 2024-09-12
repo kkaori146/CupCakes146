@@ -9,17 +9,24 @@ import { Product } from '../../../types/Product';
 import { Header } from '../../../components/Header';
 import { Button } from '../../../components/Button';
 import { useFormatter } from '../../../libs/useFormatter';
+import { Quantity } from '../../../components/Quantity';
 
 
-const Product = (data: Props) => {
+const Products = (data: Props) => {
   const { tenant, setTenant } = useAppContext();
 
   useEffect(() => {
     setTenant(data.tenant);
   }, []);
 
+    const [qtCount, setQtCount] = useState(0);
+
     const formatter = useFormatter();
-    const handleAddToCart = () => {};
+    const handleAddToCart = () => { }
+
+    const handleUpdateQt = (newCount: number) => {
+      setQtCount(newCount);
+    }
 
   return (
     <div className= {styles.container}>  
@@ -48,7 +55,16 @@ const Product = (data: Props) => {
 
             <div className={styles.qtText}>Quantidade</div>
             <div className={styles.area}>
-                <div className={styles.areaLeft}>...</div>
+                <div className={styles.areaLeft}>
+                  <Quantity
+                    color={data.tenant.mainColor}
+                    count={qtCount}
+                    onUpdateCount={handleUpdateQt}
+                    min={1}
+                    max={10}
+                  
+                  />
+                </div>
                 <div 
                     className={styles.areaRight}
                     style={{color:data.tenant.mainColor}}
@@ -68,7 +84,7 @@ const Product = (data: Props) => {
   );
 }
 
-export default Product;
+export default Products;
 
 type Props = {
   tenant: Tenant
@@ -86,7 +102,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   }
 
   // Get Products
-  const product = await api.getProducts(id as String);
+  const product = await api.getProducts(id as string);
 
   return {
     props: {

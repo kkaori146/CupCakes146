@@ -10,8 +10,10 @@ import { InputField } from '../../components/InputField';
 import { Button } from '../../components/Button';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { useAuthContext } from '../../contexts/auth';
 
 const Login = (data: Props) => {
+  const {setToken, setUser} = useAuthContext();
   const { tenant, setTenant } = useAppContext();
 
   useEffect(() => {
@@ -22,8 +24,16 @@ const Login = (data: Props) => {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
   const handleSubmit = () => {
+    setToken('1234');
+    setUser({
+      name: 'Fulano',
+      email: 'fulano@gmail.com'
+    });
+    router.push(`/${data.tenant.slug}`);
   }
+
   const handleSignUp = () => {
     router.push(`/${data.tenant.slug}/signup`);
     
@@ -49,8 +59,6 @@ const Login = (data: Props) => {
 
           <div className={styles.line}></div>
 
-
-
           <div className={styles.formArea}>
             
             <div className={styles.inputArea}>
@@ -71,6 +79,7 @@ const Login = (data: Props) => {
                 password
               />
             </div>
+
             <div className={styles.inputArea}>
               <Button
                 color={data.tenant.mainColor}
@@ -79,12 +88,12 @@ const Login = (data: Props) => {
                 fill
               />
             </div>
+
           </div>
           <div
             className={styles.forgetArea}
             style={{borderBottomColor: data.tenant.mainColor}}
-          >
-            Esqueceu sua senha? <Link legacyBehavior href={`/${data.tenant.slug}/forget`}><a style={{color: data.tenant.mainColor}}>Clique aqui</a></Link>
+          >Esqueceu sua senha? <Link legacyBehavior href={`/${data.tenant.slug}/forget`}><a style={{color: data.tenant.mainColor}}>Clique aqui</a></Link>
           </div>
           <div className={styles.line}></div>
           <div className={styles.signupArea}>
@@ -106,10 +115,10 @@ type Props = {
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const {tenant: tenantSlug} = context.query;
-  const api = useApi();
+  const api = useApi(tenantSlug as string);
 
   // Get Tenant
-  const tenant = await api.getTenant(tenantSlug as string);
+  const tenant = await api.getTenant();
   if (!tenant) {
     return {redirect: { destination: '/',permanent: false}}
   }

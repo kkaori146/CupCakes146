@@ -8,7 +8,7 @@ import {useRouter} from 'next/router';
 type Props = {
     tenant: Tenant;
     open: boolean;
-    onClose: () => void;                 
+    onClose:() => void;                 
 }
 
 export const Sidebar = ({tenant, open, onClose}: Props) => {
@@ -90,18 +90,12 @@ export const Sidebar = ({tenant, open, onClose}: Props) => {
                             color={'#6A7D8B'}
                             icon="logout"
                             label="Sair"
-                            onClick={() => { }}
+                            onClick={() => {
+                                setToken('');
+                                onClose();
+                             }}
                         />                   
                     }
-                    <SidebarMenuItem
-                        color={'#6A7D8B'}
-                        icon="logout"
-                        label="Sair"
-                        onClick={() => {
-                            setToken('');
-                            onClose();
-                        }}
-                    />
                 </div>
             </div>
         </div>

@@ -14,3 +14,6 @@ npm install swiper
 
 SVGR (utilizar a extensão svg no projeto)
 npm i -D @svgr/webpack
+
+Cookies
+npm i cookies-next

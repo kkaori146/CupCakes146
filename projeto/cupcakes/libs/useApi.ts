@@ -1,5 +1,6 @@
 import { Tenant } from "../types/Tenant";
 import { Product } from "../types/Product";
+import { User } from "../types/User";
 
 const TEMPORARYoneProduct: Product={
     id:1,
@@ -25,7 +26,7 @@ export const useApi = (tenantSlug: string) => ({
                 return {
                     slug: 'pizza146',
                     name: 'Pizza146',
-                    mainColor: '#8B008B',
+                    mainColor: '#2E8B57',
                     secondColor: '#FFF'
                 }
                 break;

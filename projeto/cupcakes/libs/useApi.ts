@@ -44,8 +44,8 @@ export const useApi = (tenantSlug: string) => ({
         return products;
     },
 
-    getProducts: async (id: string) => {
-        return TEMPORARYoneProduct;
+    getProducts: async (id: number) => {
+        return {...TEMPORARYoneProduct, id};
     },
 
     authorizeToken: async(token: string): Promise<User | false> => {

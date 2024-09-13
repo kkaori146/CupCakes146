@@ -63,7 +63,13 @@
 
 .menu {
     flex: 1;
-    background-color: #CCC;
+    background-color: #E6E6FA;
+    padding: 25px 66px;
+    display: flex;
+    flex-direction: column;
+}
+
+.menuButton {
     padding: 25px 66px;
     display: flex;
     flex-direction: column;

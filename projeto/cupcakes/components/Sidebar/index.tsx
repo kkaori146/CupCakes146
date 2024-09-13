@@ -2,6 +2,7 @@ import { Tenant } from '../../types/Tenant';
 import { useAuthContext } from '../../contexts/auth';
 import { Button } from '../Button';
 import styles from './styles.module.css';
+import { SidebarMenuItem } from '../SideBarMenuItem';
 
 type Props = {
     tenant: Tenant;
@@ -49,7 +50,12 @@ export const Sidebar = ({tenant, open, onClose}: Props) => {
                 </div>
                 <div className={styles.line}></div>
                 <div className={styles.menu}>
-                    ....
+                    <SidebarMenuItem
+                        color={'#6A7D8B'}
+                        icon="menu"
+                        label="Cardápio"
+                        onClick={() => { }}
+                    />
                 </div>
             </div>
         </div>

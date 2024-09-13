@@ -10,6 +10,8 @@ import { Header } from '../../../components/Header';
 import { Button } from '../../../components/Button';
 import { useFormatter } from '../../../libs/useFormatter';
 import { Quantity } from '../../../components/Quantity';
+import { CartCookie } from '@/types/CartCookies';
+import { getCookie, hasCookie } from 'cookies-next';
 
 
 const Products = (data: Props) => {
@@ -22,7 +24,17 @@ const Products = (data: Props) => {
     const [qtCount, setQtCount] = useState(0);
 
     const formatter = useFormatter();
-    const handleAddToCart = () => { }
+    const handleAddToCart = () => {
+      let cart: CartCookie[] =[];
+
+      //Create or Get Existing Cart
+      if (hasCookie('cart')){
+        const cartCookie = getCookie('cart');
+        const cartJson: CartCookie[] = JSON.parse(cartCookie as string);
+
+
+      }
+    }
 
     const handleUpdateQt = (newCount: number) => {
       setQtCount(newCount);

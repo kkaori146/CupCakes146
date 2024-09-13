@@ -36,7 +36,10 @@ export const useApi = (tenantSlug: string) => ({
     getAllProducts: async () => {
         let products = [];
         for (let q =0; q <6; q++) {
-            products.push(TEMPORARYoneProduct);
+            products.push({
+                ...TEMPORARYoneProduct,
+                id: q + 1
+            });
         }
         return products;
     },

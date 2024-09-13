@@ -133,7 +133,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   }
 
   // Get Products
-  const product = await api.getProducts(id as number);
+  const product = await api.getProducts(parseInt(id as string));
 
   return {
     props: {

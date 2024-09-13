@@ -8,6 +8,7 @@ import { useAppContext } from '../../contexts/app';
 import { useEffect, useState } from 'react';
 import { Tenant } from '../../types/Tenant';
 import { Product } from '../../types/Product';
+import { Sidebar } from '../../components/Sidebar';
 
 const Home = (data: Props) => {
   const { tenant, setTenant } = useAppContext();
@@ -36,6 +37,7 @@ const Home = (data: Props) => {
               <div className={styles.menuButtonLine} style={{backgroundColor: tenant?.mainColor}}></div>
               <div className={styles.menuButtonLine} style={{backgroundColor: tenant?.mainColor}}></div>
             </div>
+            <Sidebar/>
           </div>
         </div>
         <div className={styles.headerBottom}>

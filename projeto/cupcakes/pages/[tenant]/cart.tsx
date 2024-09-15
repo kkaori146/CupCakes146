@@ -10,6 +10,9 @@ import { User } from '../../types/User';
 import { useAuthContext } from '../../contexts/auth';
 import Head from 'next/head';
 import { Header } from '../../components/Header';
+import { InputField } from '../../components/InputField';
+import { Button } from '../../components/Button';
+import { useFormatter } from '../../libs/useFormatter';
 
 
 const Cart = (data: Props) => {
@@ -21,6 +24,20 @@ const Cart = (data: Props) => {
     setToken(data.token);
     if (data.user) setUser(data.user);
   }, []);
+
+  const formatter = useFormatter();
+
+  const [shippingInput, setShippingInput] = useState('');
+  const [shippingPrice, setShippingPrice] = useState(0);
+  const [subtotal, setSubtotal] = useState(0);
+
+  const handleShippingCalc = () => {
+
+  }
+
+  const handleFinish = () => {
+
+  }
 
   return (
     <div className= {styles.container}>
@@ -34,10 +51,61 @@ const Cart = (data: Props) => {
         title="Sacola"
       />
       <div className={styles.productsQuantity}>x itens</div>
-      <div className={styles.productsList}>
-        
-      </div>
+      <div className={styles.productsList}></div>
 
+      <div className={styles.shippingArea}>
+        <div className={styles.shippingTitle}>Calcular Frete e Prazo</div>
+        <div className={styles.shippingForm}>
+          <InputField
+            color={data.tenant.mainColor}
+            placeholder='Digite seu frete'
+            value={shippingInput}
+            onChange={newValue => setShippingInput(newValue)}
+          />
+          <Button
+            color={data.tenant.mainColor}
+            label="OK"
+            onClick={handleShippingCalc}
+          />
+        </div>
+        <div className={styles.shippingInfo}>
+          <div className={styles.shippingAddress}>Rua das Palmeiras, 238</div>
+          <div className={styles.shippingTime}>
+            <div className={styles.shippingTimeText}>Receba em até 1 dia</div>
+            <div
+              className={styles.shippingPrice}
+              style={{color: data.tenant.mainColor}}
+            >{formatter.formatPrice(shippingPrice)}</div>
+          </div>
+        </div>
+      </div>
+      <div className={styles.resumeArea}>
+        <div className={styles.resumeItem}>
+          <div className={styles.resumeLeft}>Subtotal</div>
+          <div className={styles.resumeRight}>{formatter.formatPrice(subtotal)}</div>
+        </div>
+        <div className={styles.resumeItem}>
+          <div className={styles.resumeLeft}>Frete</div>
+          <div className={styles.resumeRight}>{shippingPrice > 0 ? formatter.formatPrice(shippingPrice): '--'}</div>
+        </div>
+        <div className={styles.resumeLine}></div>
+        <div className={styles.resumeItem}>
+          <div className={styles.resumeLeft}>Total</div>
+          
+          <div 
+            className={styles.resumeRightBig}
+            style={{color: data.tenant.mainColor}}
+          >{shippingPrice > 0 ? formatter.formatPrice(shippingPrice + subtotal): '--'}</div>
+        </div>
+        < div className={styles.resumeButton}>
+          <Button
+            color={data.tenant.mainColor}
+            label="Continuar"
+            onClick={handleFinish}
+            fill
+          />
+        </div>
+      </div>
     </div>
   );
 }

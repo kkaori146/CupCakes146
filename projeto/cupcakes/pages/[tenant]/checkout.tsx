@@ -16,6 +16,7 @@ import { CartItem } from '../../types/CartItem';
 import { useRouter } from 'next/router';
 import { CartProductItem } from '../../components/CartProductItem';
 import { CartCookie } from '../../types/CartCookies';
+import { ButtonWithIcon } from '../../components/ButtonWithIcon';
 
 
 const Checkout = (data: Props) => {
@@ -97,7 +98,14 @@ const Checkout = (data: Props) => {
         <div className={styles.infoArea}>
           <div className={styles.infoTitle}>Endereços</div>
           <div className={styles.infoBody}>
-            .....
+            <ButtonWithIcon
+              color={data.tenant.mainColor}
+              leftIcon={'location'}
+              rightIcon={'rightarrow'}
+              value={'Rua das Palmeiras, 2337'}
+              onClick={() => { }}
+
+            />
           </div>
         </div>
 

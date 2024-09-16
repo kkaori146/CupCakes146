@@ -4,7 +4,7 @@ import { useApi } from '../../libs/useApi';
 import { useAppContext } from '../../contexts/app';
 import { useEffect, useState } from 'react';
 import { Tenant } from '../../types/Tenant';
-import { getCookie } from 'cookies-next';
+import { getCookie, setCookie } from 'cookies-next';
 import { User } from '../../types/User';
 import { useAuthContext } from '../../contexts/auth';
 import Head from 'next/head';
@@ -15,6 +15,7 @@ import { useFormatter } from '../../libs/useFormatter';
 import { CartItem } from '../../types/CartItem';
 import { useRouter } from 'next/router';
 import { CartProductItem } from '../../components/CartProductItem';
+import { CartCookie } from '../../types/CartCookies';
 
 
 const Cart = (data: Props) => {
@@ -32,6 +33,27 @@ const Cart = (data: Props) => {
 
   // Product Control
   const [cart, setCart] = useState<CartItem[]>(data.cart);
+  const handleCartChange = (newCount: number, id: number) => {
+    const tmpCart: CartItem[] = [...cart];
+    const cartIndex = tmpCart.findIndex(item => item.product.id = id);
+    if (newCount > 0) {
+      tmpCart[cartIndex].qt = newCount;
+    } else {
+        delete tmpCart[cartIndex];      
+    }
+    let newCart: CartItem[] = tmpCart.filter(item => item);
+    setCart(newCart);
+
+    // update cookie
+    let cartCookie: CartCookie[] =[];
+    for (let i in newCart) {
+      cartCookie.push({
+        id: newCart[i].product.id,
+        qt: newCart[i].qt
+      });
+    }
+    setCookie('cart', JSON.stringify(cartCookie));
+  }
 
   //Shipping
   const [shippingInput, setShippingInput] = useState('');
@@ -58,9 +80,6 @@ const Cart = (data: Props) => {
     router.push(`/${data.tenant.slug}/checkout`);
   }
 
-  const handleCartChange = () => {
-
-  }
 
   return (
     <div className= {styles.container}>

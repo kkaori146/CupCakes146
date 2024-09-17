@@ -81,6 +81,8 @@ const Checkout = (data: Props) => {
     router.push(`/${data.tenant.slug}/checkout`);
   }
 
+  const handleChangeAddress = () => {}
+
 
   return (
     <div className= {styles.container}>
@@ -103,7 +105,7 @@ const Checkout = (data: Props) => {
               leftIcon={'location'}
               rightIcon={'rightarrow'}
               value={'Rua das Palmeiras, 2337'}
-              onClick={() => { }}
+              onClick={handleChangeAddress}
 
             />
           </div>

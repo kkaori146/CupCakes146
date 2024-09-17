@@ -85,7 +85,6 @@ const Checkout = (data: Props) => {
 
   }
 
-
   return (
     <div className= {styles.container}>
       <Head>
@@ -178,6 +177,7 @@ const Checkout = (data: Props) => {
             quantity={cartItem.qt}
             product={cartItem.product}
             onChange={handleCartChange}
+            noEdit
           />
         ))}
       </div>

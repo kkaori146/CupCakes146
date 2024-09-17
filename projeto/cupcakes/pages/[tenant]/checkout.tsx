@@ -17,6 +17,7 @@ import { useRouter } from 'next/router';
 import { CartProductItem } from '../../components/CartProductItem';
 import { CartCookie } from '../../types/CartCookies';
 import { ButtonWithIcon } from '../../components/ButtonWithIcon';
+import { Address } from '../../types/Address';
 
 
 const Checkout = (data: Props) => {
@@ -57,14 +58,20 @@ const Checkout = (data: Props) => {
   }
 
   //Shipping
-  const [shippingInput, setShippingInput] = useState('');
-  const [shippingAddress, setShippingAddress] = useState('');
   const [shippingPrice, setShippingPrice] = useState(0);
-  const [shippingTime, setShippingTime] = useState(0);
-  const handleShippingCalc = () => {
-    setShippingAddress('Rua das Palmeiras, 2023');
+  const [shippingAddress, setShippingAddress] = useState<Address>();
+  const handleChangeAddress = () => {
+    //router.push(`/${data.tenant.slug}/myaddresses`);
+    setShippingAddress({
+      id: 1,
+      cep: '99999999',
+      street: "Rua das Palmeiras",
+      number: '2036',
+      neighborhood: "Santana",
+      city: 'São Paulo',
+      state: 'SP'
+    });
     setShippingPrice(9.50);
-    setShippingTime(20);
   }
 
   // Resume
@@ -79,10 +86,6 @@ const Checkout = (data: Props) => {
 
   const handleFinish = () => {
     router.push(`/${data.tenant.slug}/checkout`);
-  }
-
-  const handleChangeAddress = () => {
-
   }
 
   return (
@@ -105,7 +108,7 @@ const Checkout = (data: Props) => {
               color={data.tenant.mainColor}
               leftIcon={'location'}
               rightIcon={'rightarrow'}
-              value={'Rua das Palmeiras, 2337'}
+              value={shippingAddress ? `${shippingAddress.street} ${shippingAddress.number} - ${shippingAddress.city}` : 'Escolha um endereço'}
               onClick={handleChangeAddress}
 
             />
@@ -163,11 +166,6 @@ const Checkout = (data: Props) => {
         </div>
       </div>
 
-
-
-
-
-
       <div className={styles.productsQuantity}>{cart.length} {cart.length === 1 ? 'item' : 'itens'}</div>
       <div className={styles.productsList}>
         {cart.map((cartItem, index) =>(
@@ -182,35 +180,7 @@ const Checkout = (data: Props) => {
         ))}
       </div>
 
-      <div className={styles.shippingArea}>
-        <div className={styles.shippingTitle}>Calcular Frete e Prazo</div>
-        <div className={styles.shippingForm}>
-          <InputField
-            color={data.tenant.mainColor}
-            placeholder='Digite seu frete'
-            value={shippingInput}
-            onChange={newValue => setShippingInput(newValue)}
-          />
-          <Button
-            color={data.tenant.mainColor}
-            label="OK"
-            onClick={handleShippingCalc}
-          />
-        </div>
 
-        {shippingTime > 0 &&
-          <div className={styles.shippingInfo}>
-            <div className={styles.shippingAddress}>{shippingAddress}</div>
-            <div className={styles.shippingTime}>
-              <div className={styles.shippingTimeText}>Receba em até {shippingTime} dia</div>
-              <div
-                className={styles.shippingPrice}
-                style={{color: data.tenant.mainColor}}
-              >{formatter.formatPrice(shippingPrice)}</div>
-            </div>
-          </div>
-        }
-      </div>
       <div className={styles.resumeArea}>
         <div className={styles.resumeItem}>
           <div className={styles.resumeLeft}>Subtotal</div>
@@ -232,9 +202,10 @@ const Checkout = (data: Props) => {
         < div className={styles.resumeButton}>
           <Button
             color={data.tenant.mainColor}
-            label="Continuar"
+            label="Finalizar Pedido"
             onClick={handleFinish}
             fill
+            disabled={!shippingAddress}
           />
         </div>
       </div>

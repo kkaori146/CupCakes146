@@ -32,11 +32,16 @@ const MyAddresses = (data: Props) => {
     router.push(`/${data.tenant.slug}/newaddress`);
   }
 
-  const handleAddressSelect = (address : Address) => {}
+  const handleAddressSelect = (address : Address) => {
+    console.log(`Selecionou o endereço: ${address.street} ${address.number}`)
+  }
 
   const handleAddressEdit = (id: number) => {}
 
-  const handleAddressDelete = () => {}
+  const handleAddressDelete = (id: number) => {}
+
+  // Menu Events
+  const [menuOpened, setMenuOpened] = useState(0);
 
   return (
     <div className= {styles.container}>
@@ -49,6 +54,7 @@ const MyAddresses = (data: Props) => {
         color={data.tenant.mainColor}
         title="Meus Endereços"
       />
+
       <div className={styles.list}>
         {data.addresses.map((item, index) => (
           <AddressItem
@@ -58,6 +64,8 @@ const MyAddresses = (data: Props) => {
             onSelect={handleAddressSelect}
             onEdit={handleAddressEdit}
             onDelete={handleAddressDelete}
+            menuOpened={menuOpened}
+            setMenuOpened={setMenuOpened}
           />
         ))}
 

@@ -2,6 +2,7 @@ import { Tenant } from "../types/Tenant";
 import { Product } from "../types/Product";
 import { User } from "../types/User";
 import { CartItem } from "../types/CartItem";
+import { Address } from "../types/Address";
 
 const TEMPORARYoneProduct: Product={
     id:1,
@@ -77,6 +78,21 @@ export const useApi = (tenantSlug: string) => ({
 
 
         return cart;
+    },
+    getUserAddresses: async (email: string) => {
+        const addresses: Address[] = [];
+        for (let i = 0; i < 4; i++) {
+            addresses.push({
+                id: i + 1,
+                street: 'Rua das Margaridas',
+                number: `${i + 1}00`,
+                cep:'999999999',
+                city: 'São Paulo',
+                neighborhood: 'Santana',
+                state: 'SP',
+            });
+        }
+        return addresses;
     }
 
 

@@ -10,9 +10,9 @@ import { useAuthContext } from '../../contexts/auth';
 import Head from 'next/head';
 import { Header } from '../../components/Header';
 import { useFormatter } from '../../libs/useFormatter';
-import { CartItem } from '../../types/CartItem';
 import { useRouter } from 'next/router';
 import { Button } from '../../components/Button';
+import { Address } from '../../types/Address';
 
 const MyAddresses = (data: Props) => {
   const {setToken, setUser} = useAuthContext();
@@ -43,6 +43,9 @@ const MyAddresses = (data: Props) => {
         title="Meus Endereços"
       />
       <div className={styles.list}>
+        {data.addresses.map((item, index) => (
+            <div  key={index}>{item.street} - {item.number}</div>
+        ))}
 
       </div>
       <div className={styles.btnArea}>
@@ -63,7 +66,7 @@ type Props = {
   tenant: Tenant;
   token: string;
   user: User | null;
-  cart: CartItem
+  addresses: Address[]
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
@@ -80,18 +83,19 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 //  const token = context.req.cookies.token;
 const token = getCookie('token', context);
 const user = await api.authorizeToken(token as string);
+if (!user) {
+    return {redirect: {destination: '/login', permanent: false}}
+}
 
-
-  //Get Cart Products
-  const cartCookie = getCookie('cart', context);
-  const cart = await api.getCartProducts(cartCookie as string);
+//Get Addresses from Logged User
+const addresses = await api.getUserAddresses(user.email);
 
   return {
     props: {
       tenant,
       user,
       token,
-      cart
+      addresses
     }
   }
 }

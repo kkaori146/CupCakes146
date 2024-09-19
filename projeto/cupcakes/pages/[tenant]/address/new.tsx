@@ -13,7 +13,7 @@ import { useFormatter } from '../../../libs/useFormatter';
 import { useRouter } from 'next/router';
 import { Button } from '../../../components/Button';
 import { Address } from '../../../types/Address';
-import { AddressItem } from '../../../components/AddressItem';
+import { InputField } from '../../../components/InputField';
 
 const NewAddress = (data: Props) => {
   const {setToken, setUser} = useAuthContext();
@@ -29,10 +29,17 @@ const NewAddress = (data: Props) => {
   const router = useRouter();
   const api = useApi(data.tenant.slug);
 
+  const [addressCep, setAddressCep] = useState<string>('');
+  const [addressStreet, setAddressStreet] = useState<string>('');
+  const [addressNumber, setAddressNumber] = useState<string>('');
+  const [addressNeighborhood, setAddressNeighborhood] = useState<string>('');
+  const [addressCity, setAddressCity] = useState<string>('');
+  const [addressState, setAddressState] = useState<string>('');
+  const [addressComplement, setAddressComplement] = useState<string>('');
+
   const handleNewAddress = () => {
     router.push(`/${data.tenant.slug}/address/new`);
   }
-
 
   return (
     <div className= {styles.container}>
@@ -46,10 +53,89 @@ const NewAddress = (data: Props) => {
         title="Novo Endereços"
       />
 
+      <div className={styles.inputs}>
+
+        <div className={styles.row}>
+            <div className={styles.column}>
+                <div className={styles.label}>CEP</div>
+                <InputField
+                    color={data.tenant.mainColor}
+                    placeholder='Digite um CEP'
+                    value={addressCep}
+                    onChange={value => setAddressCep(value)}
+                />
+            </div>
+        </div>
+        <div className={styles.row}>
+            <div className={styles.column}>
+                <div className={styles.label}>Rua</div>
+                <InputField
+                    color={data.tenant.mainColor}
+                    placeholder='Digite um Rua'
+                    value={addressStreet}
+                    onChange={value => setAddressStreet(value)}
+                />
+            </div>
+            <div className={styles.column}>
+                <div className={styles.label}>Número</div>
+                <InputField
+                    color={data.tenant.mainColor}
+                    placeholder='Digite um Número'
+                    value={addressNumber}
+                    onChange={value => setAddressNumber(value)}
+                />
+            </div>
+        </div>
+        <div className={styles.row}>
+            <div className={styles.column}>
+                <div className={styles.label}>Bairro</div>
+                <InputField
+                    color={data.tenant.mainColor}
+                    placeholder='Digite um Bairro'
+                    value={addressNeighborhood}
+                    onChange={value => setAddressNeighborhood(value)}
+                />
+            </div>
+        </div>
+        <div className={styles.row}>
+            <div className={styles.column}>
+                <div className={styles.label}>Cidade</div>
+                <InputField
+                    color={data.tenant.mainColor}
+                    placeholder='Digite um Cidade'
+                    value={addressCity}
+                    onChange={value => setAddressCity(value)}
+                />
+            </div>
+        </div>
+        <div className={styles.row}>
+            <div className={styles.column}>
+                <div className={styles.label}>Estado</div>
+                <InputField
+                    color={data.tenant.mainColor}
+                    placeholder='Digite um Estado'
+                    value={addressState}
+                    onChange={value => setAddressState(value)}
+                />
+            </div>
+        </div>
+        <div className={styles.row}>
+            <div className={styles.column}>
+                <div className={styles.label}>Complemento</div>
+                <InputField
+                    color={data.tenant.mainColor}
+                    placeholder='Digite um Complemento'
+                    value={addressComplement}
+                    onChange={value => setAddressComplement(value)}
+                />
+            </div>
+        </div>
+      </div>
+
       <div className={styles.btnArea}>
         <Button
             color={data.tenant.mainColor}
-            label='Novo Endereço'
+            label='Adicionar'
             onClick={handleNewAddress}
             fill
         />

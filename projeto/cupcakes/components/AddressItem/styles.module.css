@@ -38,4 +38,22 @@
     box-shadow: 0px 16px 40px rgba(0, 0, 0, 0.08);
     border-radius: 4px;
     padding: 19px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.popupItem {
+    display: flex;
+    align-items: center;
+}
+
+
+.popupIcon {}
+
+.popupText {
+    margin-left: 19px;
+    font-weight: 400;
+    font-size: 16px;
+    color: #1B1B1B;
 }

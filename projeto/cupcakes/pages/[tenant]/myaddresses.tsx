@@ -36,9 +36,13 @@ const MyAddresses = (data: Props) => {
     console.log(`Selecionou o endereço: ${address.street} ${address.number}`)
   }
 
-  const handleAddressEdit = (id: number) => {}
+  const handleAddressEdit = (id: number) => {
+    console.log(`Editando o ${id}`);
+  }
 
-  const handleAddressDelete = (id: number) => {}
+  const handleAddressDelete = (id: number) => {
+    console.log(`Deletando o ${id}`);
+  }
 
   // Menu Events
   const [menuOpened, setMenuOpened] = useState(0);

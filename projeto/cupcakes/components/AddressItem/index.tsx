@@ -38,7 +38,31 @@ export const AddressItem = ({color, address, onSelect, onEdit, onDelete, menuOpe
                 </div>
                 {menuOpened === address.id &&
                     <div className={styles.popup}>
-                        ...
+                        <div className={styles.popupItem} onClick={() =>onEdit(address.id)}>
+                            <div className={styles.popupIcon}>
+                                <Icon
+                                    color="#96A3AB"
+                                    svg='edit'
+                                    width={24}
+                                    height={24}
+                                />
+
+                            </div>
+                            <div className={styles.popupText}>Editar</div>
+                        </div>
+                        <div className={styles.popupItem} onClick={() =>onDelete(address.id)}>
+                            <div className={styles.popupIcon}>
+                                <Icon
+                                    color="#96A3AB"
+                                    svg='delete'
+                                    width={24}
+                                    height={24}
+                                />
+
+                            </div>
+                            <div className={styles.popupText}>Deletar</div>
+
+                        </div>
                     </div>
                 }
             </div>

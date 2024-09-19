@@ -29,10 +29,6 @@ const MyAddresses = (data: Props) => {
   const router = useRouter();
   const api = useApi(data.tenant.slug);
 
-  const handleNewAddress = () => {
-    router.push(`/${data.tenant.slug}/newaddress`);
-  }
-
   const handleAddressSelect = async (address : Address) => {
     const price = await api.getShippingPrice(address);
     if (price) {
@@ -43,11 +39,16 @@ const MyAddresses = (data: Props) => {
   }
 
   const handleAddressEdit = (id: number) => {
-    console.log(`Editando o ${id}`);
+    router.push(`/${data.tenant.slug}/address/${id}`);
+
   }
 
   const handleAddressDelete = (id: number) => {
     console.log(`Deletando o ${id}`);
+  }
+
+  const handleNewAddress = () => {
+    router.push(`/${data.tenant.slug}/address/new`);
   }
 
   // Menu Events

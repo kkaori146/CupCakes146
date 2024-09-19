@@ -75,8 +75,6 @@ export const useApi = (tenantSlug: string) => ({
                 });
             }
         }
-
-
         return cart;
     },
     getUserAddresses: async (email: string) => {
@@ -93,6 +91,9 @@ export const useApi = (tenantSlug: string) => ({
             });
         }
         return addresses;
+    },
+    getShippingPrice: async (address: Address) => {
+        return 9.16;
     }
 
 

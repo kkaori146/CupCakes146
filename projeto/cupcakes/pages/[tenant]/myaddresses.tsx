@@ -27,12 +27,13 @@ const MyAddresses = (data: Props) => {
 
   const formatter = useFormatter();
   const router = useRouter();
+  const api = useApi(data.tenant.slug);
 
   const handleNewAddress = () => {
     router.push(`/${data.tenant.slug}/newaddress`);
   }
 
-  const handleAddressSelect = (address : Address) => {
+  const handleAddressSelect = async (address : Address) => {
     console.log(`Selecionou o endereço: ${address.street} ${address.number}`)
   }
 

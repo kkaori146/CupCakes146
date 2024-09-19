@@ -96,5 +96,4 @@ export const useApi = (tenantSlug: string) => ({
         return 9.16;
     }
 
-
 });

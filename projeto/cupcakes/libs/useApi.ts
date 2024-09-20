@@ -3,7 +3,8 @@ import { Product } from "../types/Product";
 import { User } from "../types/User";
 import { CartItem } from "../types/CartItem";
 import { Address } from "../types/Address";
-import NewAddress from "@/pages/[tenant]/address/new";
+import NewAddress from "../pages/[tenant]/address/new";
+import { Order } from "../types/Order";
 
 const TEMPORARYoneProduct: Product={
     id:1,
@@ -12,6 +13,34 @@ const TEMPORARYoneProduct: Product={
     name: 'Yellow Dream', 
     price: 12.00,
     description: "Cupcake de limão com recheio de baunilha com confeito de açúcar amarelo e massa branca de iogurte"
+}
+
+const TEMPORARYorder: Order = {
+    id: 123,
+    status: 'preparing',
+    orderDate: '2024/09/20',
+    userid:'123',
+    shippingAddress: {
+        id: 2,
+        street: "Rua das Azaléias",
+        number: `300`,
+        cep: '46589404',
+        city:'São Paulo',
+        neighborhood: 'Paraíso',
+        state: 'SP'
+    },
+    shippingPrice: 9.14,
+    paymentType: 'card',
+    cupom: 'CUPCAKES',
+    cupomDiscount: 14.3,
+    products: [
+        {product: {...TEMPORARYoneProduct, id:1}, qt:1},
+        {product: {...TEMPORARYoneProduct, id:2}, qt:2},
+        {product: {...TEMPORARYoneProduct, id:3}, qt:1},
+
+    ],
+    subtotal: 204,
+    total: 198.84
 }
 
 export const useApi = (tenantSlug: string) => ({
@@ -124,5 +153,16 @@ export const useApi = (tenantSlug: string) => ({
     getShippingPrice: async (address: Address) => {
         return 9.16;
     },
-
+    setOrder: async (
+        address: Address,
+        paymentType: 'money' | 'card',
+        paymentChange: number,
+        cupom: string,
+        cart: CartItem[]
+    ) => {
+        return TEMPORARYorder;
+    },
+    getOrder: async (orderid: number) => {
+        return TEMPORARYorder;
+    }
 });

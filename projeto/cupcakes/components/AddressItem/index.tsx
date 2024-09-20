@@ -46,7 +46,6 @@ export const AddressItem = ({color, address, onSelect, onEdit, onDelete, menuOpe
                                     width={24}
                                     height={24}
                                 />
-
                             </div>
                             <div className={styles.popupText}>Editar</div>
                         </div>
@@ -58,10 +57,8 @@ export const AddressItem = ({color, address, onSelect, onEdit, onDelete, menuOpe
                                     width={24}
                                     height={24}
                                 />
-
                             </div>
                             <div className={styles.popupText}>Deletar</div>
-
                         </div>
                     </div>
                 }

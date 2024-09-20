@@ -1,4 +1,4 @@
-import styles from '../../styles/Order-id.module.css';
+import styles from '../../../styles/Order-id.module.css';
 import { GetServerSideProps } from 'next';
 import { useApi } from '../../../libs/useApi';
 import { useAppContext } from '../../../contexts/app';
@@ -10,7 +10,6 @@ import { useAuthContext } from '../../../contexts/auth';
 import Head from 'next/head';
 import { Header } from '../../../components/Header';
 import { InputField } from '../../../components/InputField';
-import { Button } from '../../../components/Button';
 import { useFormatter } from '../../../libs/useFormatter';
 import { useRouter } from 'next/router';
 import { CartProductItem } from '../../../components/CartProductItem';
@@ -30,6 +29,14 @@ const OrderID = (data: Props) => {
 
   const formatter = useFormatter();
   const router = useRouter();
+
+  useEffect(() => {
+    if(data.order.status !== 'delivered') {
+        setTimeout(() => {
+            router.reload();
+        }, 30000);
+    }
+  },);
 
   const orderStatusList = {
     preparing: {
@@ -69,12 +76,35 @@ const OrderID = (data: Props) => {
         title={`Pedido #${data.order.id}`}
       />
 
+      {data.order.status !== 'delivered' &&
+        <div 
+            className={styles.statusArea}
+            style={{backgroundColor: orderStatusList[data.order.status].backgroundColor}}
+        >
+            <div 
+                className={styles.statuslongLabel}
+                style={{color: orderStatusList[data.order.status].fontColor}}
+            >{orderStatusList[data.order.status].longLabel}</div>
+            <div className={styles.statusPct}>
+                <div 
+                    className={styles.statusPcrBar}
+                    style={{
+                        width: `${orderStatusList[data.order.status].pct}%`,
+                        backgroundColor: orderStatusList[data.order.status].fontColor
+                    }}
+
+                ></div>
+            </div>
+            <div className={styles.statusMsg}> Aguardando mudança de status...</div>
+        </div>
+      }
+
         <div className={styles.orderInfoArea}>
             <div 
                 className={styles.orderInfoStatus}
                 style={{backgroundColor: orderStatusList[data.order.status].backgroundColor,
                 color: orderStatusList[data.order.status].fontColor,
-                
+
             }}>{orderStatusList[data.order.status].label}</div>
             <div className={styles.orderInfoQt}>{data.order.products.length} {data.order.products.length === 1 ? 'item' : 'itens'}</div>
             <div className={styles.orderInfoDate}>{formatter.formatDate(data.order.orderDate)}</div>

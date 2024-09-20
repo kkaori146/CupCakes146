@@ -3,6 +3,7 @@ import { Product } from "../types/Product";
 import { User } from "../types/User";
 import { CartItem } from "../types/CartItem";
 import { Address } from "../types/Address";
+import NewAddress from "@/pages/[tenant]/address/new";
 
 const TEMPORARYoneProduct: Product={
     id:1,
@@ -92,8 +93,33 @@ export const useApi = (tenantSlug: string) => ({
         }
         return addresses;
     },
+
+    getUserAddress: async (addressid: number) => {
+        let address: Address = {
+            id: addressid,
+            street: 'Rua das Margaridas',
+            number: `${addressid}00`,
+            cep:'999999999',
+            city: 'São Paulo',
+            neighborhood: 'Santana',
+            state: 'SP',
+        }
+        return address;
+
+    },
+
+    addUserAddress: async (address: Address) => {
+        console.log(address);
+        return { ...address, id: 9};
+        
+    },
+
+    editUserAddress: async(newAddressData: Address) => {
+        return true;
+    },
+
     getShippingPrice: async (address: Address) => {
         return 9.16;
-    }
+    },
 
 });

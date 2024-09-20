@@ -12,6 +12,6 @@ export const useFormatter = () => ({
         return `${'0'.repeat(remain)}${qt}`;
     },
     formatDate: (date: string) => {
-        return '-----';
+        return new Intl.DateTimeFormat('pt-BR').format(new Date (`${date} 00:00:00`));
     }
 });

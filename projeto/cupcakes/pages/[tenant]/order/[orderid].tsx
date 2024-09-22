@@ -34,10 +34,9 @@ const OrderID = (data: Props) => {
     if(data.order.status !== 'delivered') {
         setTimeout(() => {
             router.reload();
-        }, 30000);
+        }, 10000);
     }
   },);
-
   const orderStatusList = {
     preparing: {
         label: 'Preparando',
@@ -52,7 +51,6 @@ const OrderID = (data: Props) => {
         backgroundColor: '#F1F3F8',
         fontColor: '#758CBD',
         pct: 75
-
     },
     delivered: {
         label: 'Entregue',
@@ -69,13 +67,11 @@ const OrderID = (data: Props) => {
       <Head>
         <title>Pedido #{data.order.id} | {data.tenant.name}</title>
       </Head>
-
       <Header
         backHref={`/${data.tenant.slug}`}
         color={data.tenant.mainColor}
         title={`Pedido #${data.order.id}`}
       />
-
       {data.order.status !== 'delivered' &&
         <div 
             className={styles.statusArea}
@@ -92,7 +88,6 @@ const OrderID = (data: Props) => {
                         width: `${orderStatusList[data.order.status].pct}%`,
                         backgroundColor: orderStatusList[data.order.status].fontColor
                     }}
-
                 ></div>
             </div>
             <div className={styles.statusMsg}> Aguardando mudança de status...</div>
@@ -132,7 +127,6 @@ const OrderID = (data: Props) => {
               rightIcon={'rightarrow'}
               value={`${data.order.shippingAddress.street} ${data.order.shippingAddress.number} - ${data.order.shippingAddress.city}`}
               onClick={() => {}}
-
             />
           </div>
         </div>
@@ -157,7 +151,6 @@ const OrderID = (data: Props) => {
                   value='Cartão'
                   onClick={() => {}}
                   fill={data.order.paymentType === 'card'}
-
                 />
               </div>
             </div>
@@ -245,10 +238,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 const token = getCookie('token', context);
 const user = await api.authorizeToken(token as string);
 
-
   //Get Order
   const order = await api.getOrder(parseInt(orderid as string));
-
 
   return {
     props: {

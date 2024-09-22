@@ -182,7 +182,6 @@ const NewAddress = (data: Props) => {
                     value={addressComplement}
                     onChange={value => setAddressComplement(value)}
                     warning={errorFields.includes('complement')}
-
                 />
             </div>
         </div>

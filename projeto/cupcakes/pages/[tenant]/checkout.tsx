@@ -16,8 +16,6 @@ import { CartItem } from '../../types/CartItem';
 import { useRouter } from 'next/router';
 import { CartProductItem } from '../../components/CartProductItem';
 import { ButtonWithIcon } from '../../components/ButtonWithIcon';
-import { Address } from '../../types/Address';
-
 
 const Checkout = (data: Props) => {
   const {setToken, setUser} = useAuthContext();
@@ -250,7 +248,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 //  const token = context.req.cookies.token;
 const token = getCookie('token', context);
 const user = await api.authorizeToken(token as string);
-
 
   //Get Cart Products
   const cartCookie = getCookie('cart', context);

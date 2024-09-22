@@ -16,7 +16,7 @@ export const Button = ({ color, label, onClick, fill, disabled}: Props) => {
             style={{
                 color: fill ? '#FFF' : color,
                 borderColor: color,
-                background: fill ? color : 'traansparent',
+                background: fill ? color : 'transparent',
                 opacity: disabled ? .4 : 1
             }}
         >

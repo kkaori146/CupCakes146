@@ -14,7 +14,6 @@ import { CartCookie } from '../../../types/CartCookies';
 import { getCookie, hasCookie, setCookie } from 'cookies-next';
 import { Router, useRouter } from 'next/router';
 
-
 const Products = (data: Props) => {
   const { tenant, setTenant } = useAppContext();
 
@@ -23,9 +22,7 @@ const Products = (data: Props) => {
   }, []);
 
     const router = useRouter();
-
     const [qtCount, setQtCount] = useState(0);
-
     const formatter = useFormatter();
     const handleAddToCart = () => {
       let cart: CartCookie[] =[];
@@ -53,7 +50,6 @@ const Products = (data: Props) => {
 
       //Going to cart
       router.push(`/${data.tenant.slug}/cart`);
-
     }
 
     const handleUpdateQt = (newCount: number) => {
@@ -82,9 +78,7 @@ const Products = (data: Props) => {
             <div className={styles.category}>{data.product.categoryName}</div>
             <div className={styles.title} style={{borderBottomColor: data.tenant.mainColor}}>{data.product.name}</div>
             <div className={styles.line}></div>
-
             <div className={styles.description}>{data.product.description}</div>
-
             <div className={styles.qtText}>Quantidade</div>
             <div className={styles.area}>
                 <div className={styles.areaLeft}>
@@ -101,7 +95,6 @@ const Products = (data: Props) => {
                     style={{color:data.tenant.mainColor}}
                 >{formatter.formatPrice(data.product.price)}</div>
             </div>
-
             <div className={styles.buttonArea}>
                 <Button
                     color={data.tenant.mainColor}
@@ -109,7 +102,6 @@ const Products = (data: Props) => {
                     onClick={handleAddToCart}
                     fill
                 />
-            
             </div>
     </div>
   );

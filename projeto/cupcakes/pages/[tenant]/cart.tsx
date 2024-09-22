@@ -80,7 +80,6 @@ const Cart = (data: Props) => {
     router.push(`/${data.tenant.slug}/checkout`);
   }
 
-
   return (
     <div className= {styles.container}>
       <Head>
@@ -104,7 +103,6 @@ const Cart = (data: Props) => {
           />
         ))}
       </div>
-
       <div className={styles.shippingArea}>
         <div className={styles.shippingTitle}>Calcular Frete e Prazo</div>
         <div className={styles.shippingForm}>
@@ -120,7 +118,6 @@ const Cart = (data: Props) => {
             onClick={handleShippingCalc}
           />
         </div>
-
         {shippingTime > 0 &&
           <div className={styles.shippingInfo}>
             <div className={styles.shippingAddress}>{shippingAddress}</div>
@@ -146,7 +143,6 @@ const Cart = (data: Props) => {
         <div className={styles.resumeLine}></div>
         <div className={styles.resumeItem}>
           <div className={styles.resumeLeft}>Total</div>
-          
           <div 
             className={styles.resumeRightBig}
             style={{color: data.tenant.mainColor}}
@@ -189,11 +185,9 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 const token = getCookie('token', context);
 const user = await api.authorizeToken(token as string);
 
-
   //Get Cart Products
   const cartCookie = getCookie('cart', context);
   const cart = await api.getCartProducts(cartCookie as string);
-
   return {
     props: {
       tenant,

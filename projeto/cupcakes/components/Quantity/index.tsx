@@ -9,7 +9,6 @@ type Props = {
     min?: number;
     max?: number;
     small?: boolean;
-
 }
 
 export const Quantity = ({color, count, onUpdateCount, min, max, small}: Props) => {

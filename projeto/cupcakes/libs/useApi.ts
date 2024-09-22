@@ -5,13 +5,14 @@ import { CartItem } from "../types/CartItem";
 import { Address } from "../types/Address";
 import { Order } from "../types/Order";
 
-const TEMPORARYoneProduct: Product={
+const TEMPORARYoneProduct: 
+Product={
     id:1,
-    image:'/tmp/cupcake_amarelo.png', 
-    categoryName: "Festa", 
-    name: 'Yellow Dream', 
+    image:'/tmp/cupcake_red.png', 
+    categoryName: "Festa - Promoção", 
+    name: 'Red Dream', 
     price: 12.00,
-    description: "Cupcake de limão com recheio de baunilha com confeito de açúcar amarelo e massa branca de iogurte"
+    description: "Cupcake de Red Velvet com recheio de geléia de morango 100% orgânico",
 }
 
 const TEMPORARYorder: Order = {
@@ -28,18 +29,18 @@ const TEMPORARYorder: Order = {
         neighborhood: 'Paraíso',
         state: 'SP'
     },
-    shippingPrice: 2.00,
+    shippingPrice: 3.00,
     paymentType: 'card',
     cupom: 'CUPCAKES',
     cupomDiscount: 3,
     products: [
-        {product: {...TEMPORARYoneProduct, id:1}, qt:1},
-        {product: {...TEMPORARYoneProduct, id:2}, qt:2},
-        {product: {...TEMPORARYoneProduct, id:3}, qt:1},
+        {product: {...TEMPORARYoneProduct, id:1}, qt:3},
+        //{product: {...TEMPORARYoneProduct, id:2}, qt:2},
+        //{product: {...TEMPORARYoneProduct, id:3}, qt:1},
 
     ],
-    subtotal: 24,
-    total: 23.00
+    subtotal: 36.00,
+    total: 36.00
 }
 
 export const useApi = (tenantSlug: string) => ({
@@ -150,7 +151,7 @@ export const useApi = (tenantSlug: string) => ({
     },
 
     getShippingPrice: async (address: Address) => {
-        return 9.16;
+        return 3.00;
     },
     setOrder: async (
         address: Address,

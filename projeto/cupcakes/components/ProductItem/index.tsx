@@ -55,6 +55,20 @@ export const ProductItem = ({data}: Props) => {
                     </div>
                 </a>
             </Link>
+
+            <Link legacyBehavior href={`/${tenant?.slug}`}>
+                <a className={styles.container}>
+                    <div className={styles.head} style={{backgroundColor: tenant?.secondColor}}></div>
+                    <div className={styles.info}>
+                        <div className={styles.img}>
+                            <img src='/tmp/cupcake_chocolate.png' alt=''/>
+                        </div>
+                        <div className={styles.catName}>Festa - Novidades</div>
+                        <div className={styles.name}>Choco Loko</div>
+                        <div className={styles.price} style={{color: tenant?.mainColor}}>EM BREVE</div>
+                    </div>
+                </a>
+            </Link>
         </div>
     );
 }

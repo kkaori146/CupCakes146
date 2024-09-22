@@ -3,7 +3,6 @@ import { Product } from "../types/Product";
 import { User } from "../types/User";
 import { CartItem } from "../types/CartItem";
 import { Address } from "../types/Address";
-import NewAddress from "../pages/[tenant]/address/new";
 import { Order } from "../types/Order";
 
 const TEMPORARYoneProduct: Product={
@@ -29,18 +28,18 @@ const TEMPORARYorder: Order = {
         neighborhood: 'Paraíso',
         state: 'SP'
     },
-    shippingPrice: 9.14,
+    shippingPrice: 2.00,
     paymentType: 'card',
     cupom: 'CUPCAKES',
-    cupomDiscount: 14.3,
+    cupomDiscount: 3,
     products: [
         {product: {...TEMPORARYoneProduct, id:1}, qt:1},
         {product: {...TEMPORARYoneProduct, id:2}, qt:2},
         {product: {...TEMPORARYoneProduct, id:3}, qt:1},
 
     ],
-    subtotal: 204,
-    total: 198.84
+    subtotal: 24,
+    total: 23.00
 }
 
 export const useApi = (tenantSlug: string) => ({
@@ -67,7 +66,7 @@ export const useApi = (tenantSlug: string) => ({
     },
     getAllProducts: async () => {
         let products = [];
-        for (let q =0; q <6; q++) {
+        for (let q =0; q <1; q++) {
             products.push({
                 ...TEMPORARYoneProduct,
                 id: q + 1

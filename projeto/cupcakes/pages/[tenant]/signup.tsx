@@ -34,25 +34,17 @@ const SignUp = (data: Props) => {
           <Head>
             <title>Cadastro | {data.tenant.name}</title>
           </Head>
-
           <Header
             color={data.tenant.mainColor}
             backHref={`/${data.tenant.slug}/login`}
           />
-
           <div className={styles.header}>{data.tenant.name}</div>
-
           <div
             className={styles.subtitle}
             style={{borderBottomColor: data.tenant.name}}
           >Preencha os campos para criar o seu cadastro</div>
-
           <div className={styles.line}></div>
-
-
-
-          <div className={styles.formArea}>
-            
+          <div className={styles.formArea}>            
             <div className={styles.inputArea}>
               <InputField
                 color={data.tenant.mainColor}
@@ -70,7 +62,6 @@ const SignUp = (data: Props) => {
                 password
               />
             </div>
-
             <div className={styles.inputArea}>
               <InputField
                 color={data.tenant.mainColor}

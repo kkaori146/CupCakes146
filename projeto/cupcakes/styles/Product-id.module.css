@@ -71,17 +71,12 @@
     align-items: center;
 }
 
-.areaLeft {
-
-}
-
 .areaRight {
     flex: 1;
     text-align: right;
     font-weight: 600;
     font-size: 40px;
     color: #000;
-
 }
 
 .buttonArea {

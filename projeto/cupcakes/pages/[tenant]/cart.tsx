@@ -62,7 +62,7 @@ const Cart = (data: Props) => {
   const [shippingTime, setShippingTime] = useState(0);
   const handleShippingCalc = () => {
     setShippingAddress('Rua das Palmeiras, 2023');
-    setShippingPrice(9.50);
+    setShippingPrice(3);
     setShippingTime(20);
   }
 

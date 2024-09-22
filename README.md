@@ -7,7 +7,13 @@ http://localhost:3000/cupcakes146
 - Tela de Login
 http://localhost:3000/cupcakes146/login
 
-- Bibliotecas instaladas
+
+
+- Instalação
+
+Next.js
+npm install next
+
 
 Swiper (utilizar a função de banner no projeto)
 npm install swiper

@@ -32,7 +32,6 @@ export const CartProductItem = ({color, quantity, product, onChange, noEdit}: Pr
                         <div className={styles.qtTitle} style={{color}}>Qnt.</div>
                         <div className={styles.qtCount} style={{color}}>{quantity}</div>
                     </div>
-                
                 }
                 {!noEdit &&
                     <Quantity

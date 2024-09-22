@@ -40,7 +40,6 @@ const MyAddresses = (data: Props) => {
 
   const handleAddressEdit = (id: number) => {
     router.push(`/${data.tenant.slug}/address/${id}`);
-
   }
 
   const handleAddressDelete = async (id: number) => {
@@ -71,13 +70,11 @@ const MyAddresses = (data: Props) => {
       <Head>
         <title>Meus Endereços | {data.tenant.name}</title>
       </Head>
-
       <Header
         backHref={`/${data.tenant.slug}/checkout`}
         color={data.tenant.mainColor}
         title="Meus Endereços"
       />
-
       <div className={styles.list}>
         {data.addresses.map((item, index) => (
           <AddressItem
@@ -91,7 +88,6 @@ const MyAddresses = (data: Props) => {
             setMenuOpened={setMenuOpened}
           />
         ))}
-
       </div>
       <div className={styles.btnArea}>
         <Button

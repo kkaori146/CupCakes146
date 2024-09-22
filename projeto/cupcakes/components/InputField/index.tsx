@@ -43,6 +43,5 @@ export const InputField = ({ color, placeholder, value, onChange, password, warn
                 </div>
             }
         </div>
-
     );
 }

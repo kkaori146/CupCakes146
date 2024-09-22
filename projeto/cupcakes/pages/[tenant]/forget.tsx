@@ -8,7 +8,6 @@ import Head from 'next/head';
 import { Header } from '../../components/Header';
 import { InputField } from '../../components/InputField';
 import { Button } from '../../components/Button';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 const Forget = (data: Props) => {
@@ -19,40 +18,28 @@ const Forget = (data: Props) => {
   }, []);
 
   const router = useRouter();
-
   const [email, setEmail] = useState('');
-
   const handleSubmit = () => {
     router.push(`/${data.tenant.slug}/forget-success`);
   }
-
 
   return (
     <div className= {styles.container}>
           <Head>
             <title>Esqueci a Senha | {data.tenant.name}</title>
           </Head>
-
           <Header
             color={data.tenant.mainColor}
             backHref={`/${data.tenant.slug}/login`}
           />
-
           <div className={styles.header}>{data.tenant.name}</div>
-
           <div className={styles.title}>Esqueceu a sua Senha?</div>
-
           <div
             className={styles.subtitle}
             style={{borderBottomColor: data.tenant.name}}
           >Preencha o campo com seu e-mail e receba as instruções necessárias para redefinir a sua senha</div>
-
           <div className={styles.line}></div>
-
-
-
-          <div className={styles.formArea}>
-            
+          <div className={styles.formArea}>           
             <div className={styles.inputArea}>
               <InputField
                 color={data.tenant.mainColor}
@@ -61,8 +48,6 @@ const Forget = (data: Props) => {
                 onChange={setEmail}
               />
             </div>
-
-
             <div className={styles.inputArea}>
               <Button
                 color={data.tenant.mainColor}

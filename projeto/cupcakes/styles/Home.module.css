@@ -14,10 +14,6 @@
   margin-bottom: 27px;
 }
 
-.headerTopLeft {
-
-}
-
 .headerTitle {
   font-weight: 500;
   font-size: 24px;
@@ -29,10 +25,6 @@
   font-weight: 400;
   font-size: 16px;
   color: rgba(151, 151, 151, 0.8);
-}
-
-.headerTopRight {
-
 }
 
 .menuButton {
@@ -48,10 +40,6 @@
   height: 2px;
 }
 
-.headerBottom {
-
-}
-
 .grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -64,7 +52,6 @@
   font-weight: 400;
   font-size: 16px;
   color: #979797;
-
 }
 
 .searchText strong {
@@ -74,7 +61,6 @@
 .noProducts {
   width: 235px;
   margin: 88px auto;
-
 }
 
 .noProductsText {
@@ -84,5 +70,4 @@
   color: #CDCDCD;
   text-align: center;
   margin-top: 32px;
-
 }

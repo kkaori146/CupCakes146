@@ -69,7 +69,6 @@ const Home = (data: Props) => {
           <SearchInput onSearch={handleSearch}/>
         </div>
       </header>
-
       {searchText &&
         <>
           <div className={styles.searchText}>
@@ -133,7 +132,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 //  const token = context.req.cookies.token;
 const token = getCookie('token', context);
 const user = await api.authorizeToken(token as string);
-
 
   // Get Products
   const products = await api.getAllProducts();

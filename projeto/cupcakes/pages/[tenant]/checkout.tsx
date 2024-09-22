@@ -53,7 +53,7 @@ const Checkout = (data: Props) => {
   const handleSetCupom = () => {
     if (cupomInput) {
         setCupom(cupomInput);
-        setCupomDiscount(15.2);
+        setCupomDiscount(3);
     }
   }
 
@@ -83,7 +83,6 @@ const Checkout = (data: Props) => {
       }
     }
   }
-
   return (
     <div className= {styles.container}>
       <Head>
@@ -95,7 +94,6 @@ const Checkout = (data: Props) => {
         color={data.tenant.mainColor}
         title="Checkout"
       />
-
       <div className={styles.infoGroup}>
         <div className={styles.infoArea}>
           <div className={styles.infoTitle}>Endereços</div>
@@ -106,11 +104,9 @@ const Checkout = (data: Props) => {
               rightIcon={'rightarrow'}
               value={shippingAddress ? `${shippingAddress.street} ${shippingAddress.number} - ${shippingAddress.city}` : 'Escolha um endereço'}
               onClick={handleChangeAddress}
-
             />
           </div>
         </div>
-
         <div className={styles.infoArea}>
           <div className={styles.infoTitle}>Tipo de Pagamento</div>
           <div className={styles.infoBody}>
@@ -131,7 +127,6 @@ const Checkout = (data: Props) => {
                   value='Cartão'
                   onClick={() => setPaymentType('card')}
                   fill={paymentType === 'card'}
-
                 />
               </div>
             </div>
@@ -195,8 +190,6 @@ const Checkout = (data: Props) => {
           />
         ))}
       </div>
-
-
       <div className={styles.resumeArea}>
         <div className={styles.resumeItem}>
           <div className={styles.resumeLeft}>Subtotal</div>
@@ -215,7 +208,6 @@ const Checkout = (data: Props) => {
         <div className={styles.resumeLine}></div>
         <div className={styles.resumeItem}>
           <div className={styles.resumeLeft}>Total</div>
-          
           <div 
             className={styles.resumeRightBig}
             style={{color: data.tenant.mainColor}}

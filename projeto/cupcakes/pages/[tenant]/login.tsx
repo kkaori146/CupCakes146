@@ -36,7 +36,6 @@ const Login = (data: Props) => {
 
   const handleSignUp = () => {
     router.push(`/${data.tenant.slug}/signup`);
-    
   }
 
   return (
@@ -49,18 +48,13 @@ const Login = (data: Props) => {
             color={data.tenant.mainColor}
             backHref={`/${data.tenant.slug}`}
           />
-
           <div className={styles.header}>{data.tenant.name}</div>
-
           <div
             className={styles.subtitle}
             style={{borderBottomColor: data.tenant.name}}
           >Use suas credenciais para realizar o login</div>
-
           <div className={styles.line}></div>
-
           <div className={styles.formArea}>
-            
             <div className={styles.inputArea}>
               <InputField
                 color={data.tenant.mainColor}
@@ -69,7 +63,6 @@ const Login = (data: Props) => {
                 onChange={setEmail}
               />
             </div>
-
             <div className={styles.inputArea}>
               <InputField
                 color={data.tenant.mainColor}
@@ -79,7 +72,6 @@ const Login = (data: Props) => {
                 password
               />
             </div>
-
             <div className={styles.inputArea}>
               <Button
                 color={data.tenant.mainColor}
@@ -88,7 +80,6 @@ const Login = (data: Props) => {
                 fill
               />
             </div>
-
           </div>
           <div
             className={styles.forgetArea}

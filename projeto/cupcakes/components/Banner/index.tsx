@@ -20,6 +20,8 @@ export const Banner = () => {
                 >
                     <SwiperSlide className={styles.slide}><img src="/tmp/banner1.png" alt=''/></SwiperSlide>
                     <SwiperSlide className={styles.slide}><img src="/tmp/banner2.png" alt=''/></SwiperSlide>
+                    <SwiperSlide className={styles.slide}><img src="/tmp/banner3.png" alt=''/></SwiperSlide>
+                    <SwiperSlide className={styles.slide}><img src="/tmp/banner4.png" alt=''/></SwiperSlide>
             </Swiper>
         </div>
     );

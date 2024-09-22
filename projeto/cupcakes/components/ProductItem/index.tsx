@@ -35,7 +35,7 @@ export const ProductItem = ({data}: Props) => {
                         <div className={styles.img}>
                             <img src='/tmp/cupcake_colorido.png' alt=''/>
                         </div>
-                        <div className={styles.catName}>Festa</div>
+                        <div className={styles.catName}>Festa - Promoção</div>
                         <div className={styles.name}>Colorido Confeito</div>
                         <div className={styles.price} style={{color: tenant?.mainColor}}>ESGOTADO</div>
                     </div>

@@ -1,11 +1,17 @@
-/*.container {
-    display: block;
-    background: #FFF;
-    box-shadow: 0px 8px 40px rgba(0, 0, 0, 0.08);
-    border-radius: 8px;
-    overflow: hidden;
-    text-decoration: none;
-}*/
+.productsContainer {
+    display: flex; 
+    justify-content: space-between; 
+    gap: 80px; 
+    flex-wrap: wrap; 
+
+}
+
+.container {
+    width: 670px; 
+    flex: 1; 
+    margin-bottom: 20px; 
+}
+
 .head {
     height: 90px;
 }
@@ -43,17 +49,4 @@
 
 }
 
-.productsContainer {
-    display: flex; /* Ativa o layout flexbox */
-    justify-content: space-between; /* Coloca espaço entre os cupcakes */
-    gap: space-between; /* Define o espaço entre os cupcakes (caso não queira usar `space-between`) */
-    flex-wrap: wrap; /* Permite que os cupcakes quebrem a linha se não couberem */
-
-}
-
-.container {
-    width: 700px; /* Define uma largura fixa para cada cupcake */
-    flex: 1; /* Faz com que os cupcakes ocupem o mesmo espaço dentro do flexbox */
-    margin-bottom: 20px; /* Espaçamento inferior entre as linhas de cupcakes */
-}
 

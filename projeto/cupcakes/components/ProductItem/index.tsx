@@ -13,7 +13,7 @@ export const ProductItem = ({data}: Props) => {
 
     const formatter = useFormatter();
     return (
-        <div className={styles.productsContainer}> {/* Novo contêiner flexbox */}
+        <div className={styles.productsContainer}>
             <Link legacyBehavior href={`/${tenant?.slug}/product/${data.id}`}>
                 <a className={styles.container}>
                     <div className={styles.head} style={{backgroundColor: tenant?.secondColor}}></div>
@@ -28,7 +28,7 @@ export const ProductItem = ({data}: Props) => {
                 </a>
             </Link>
     
-            <Link legacyBehavior href={`/${tenant?.slug}/product/${data.id}`}>
+            <Link legacyBehavior href={`/${tenant?.slug}`}>
                 <a className={styles.container}>
                     <div className={styles.head} style={{backgroundColor: tenant?.secondColor}}></div>
                     <div className={styles.info}>
@@ -42,7 +42,7 @@ export const ProductItem = ({data}: Props) => {
                 </a>
             </Link>
 
-            <Link legacyBehavior href={`/${tenant?.slug}/product/${data.id}`}>
+            <Link legacyBehavior href={`/${tenant?.slug}`}>
                 <a className={styles.container}>
                     <div className={styles.head} style={{backgroundColor: tenant?.secondColor}}></div>
                     <div className={styles.info}>

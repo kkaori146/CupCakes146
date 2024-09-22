@@ -63,26 +63,6 @@ export const Sidebar = ({tenant, open, onClose}: Props) => {
                         label="Sacola"
                         onClick={() => router.push(`/${tenant.slug}/cart`)}
                     />
-                    <SidebarMenuItem
-                        color={'#6A7D8B'}
-                        icon="fav"
-                        label="Favoritos"
-                        onClick={() => { }}
-                        disabled
-                    />
-                    <SidebarMenuItem
-                        color={'#6A7D8B'}
-                        icon="order"
-                        label="Meus Pedidos"
-                        onClick={() => router.push(`/${tenant.slug}/orders`)}
-                    />
-                    <SidebarMenuItem
-                        color={'#6A7D8B'}
-                        icon="config"
-                        label="Configurações"
-                        onClick={() => { }}
-                        disabled
-                    />
                 </div>
                 <div className={styles.menuButton}>
                     {user &&

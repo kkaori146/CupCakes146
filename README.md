@@ -40,7 +40,7 @@ npm i -D @svgr/webpack
 
 - Cookies, para capturar os cookies do client e do server 
 ```bash
-<npm i cookies-next> 
+npm i cookies-next
 ```
 
 ## PASSO-A-PASSO DE COMO RODAR O SITE LOCALMENTE 
@@ -52,7 +52,7 @@ Será gerado um link para a abertura de um browser, cole o endereço do site de 
 ```bash
 http://localhost:3000/cupcakes146/login
 ```
-Você será direcionado para a Tela de Login do site. 
+Direcionamento para a Tela de Login do site. 
 
 ```bash
 http://localhost:3000/cupcakes146

@@ -22,9 +22,9 @@ const TEMPORARYorder: Order = {
     userid:'123',
     shippingAddress: {
         id: 2,
-        street: "Rua das Azaléias",
-        number: `300`,
-        cep: '46589404',
+        street: "Rua das Margaridas",
+        number: `200`,
+        cep: '99999999',
         city:'São Paulo',
         neighborhood: 'Paraíso',
         state: 'SP'

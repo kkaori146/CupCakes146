@@ -5,7 +5,7 @@ O site de cupcakes foi desenvolvido a fim de cumprir os requisitos de aprovaçã
 
 ## TECNOLOGIAS EMPREGADAS
 
-Foi utilizado Next.js e Node.js para a estrutura de navegação, a renderização de páginas no lado do servidor e toda a lógica da aplicação (backend). 
+Foi utilizado Next.js com algumas funcionalidades de Node.js para a estrutura de navegação, a renderização de páginas no lado do servidor e toda a lógica da aplicação (backend). 
 
 No frontend, foram empregados o HTML, CSS, JavaScript e TypeScript para criar uma interface de usuário interativa, garantindo uma experiência eficiente e moderna para os usuários. 
 

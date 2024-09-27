@@ -122,7 +122,7 @@ const Cart = (data: Props) => {
           <div className={styles.shippingInfo}>
             <div className={styles.shippingAddress}>{shippingAddress}</div>
             <div className={styles.shippingTime}>
-              <div className={styles.shippingTimeText}>Receba em até {shippingTime} dia</div>
+              <div className={styles.shippingTimeText}>Receba em até {shippingTime} dias</div>
               <div
                 className={styles.shippingPrice}
                 style={{color: data.tenant.mainColor}}

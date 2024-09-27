@@ -90,10 +90,10 @@ const Products = (data: Props) => {
                     small                 
                   />
                 </div>
-                  <div 
-                      className={styles.areaRight}
-                      style={{color:data.tenant.mainColor}}
-                  >{formatter.formatPrice(data.product.price)}</div>
+                <div 
+                    className={styles.areaRight}
+                    style={{color:data.tenant.mainColor}}
+                >{formatter.formatPrice(data.product.price)}</div>
             </div>
             <div className={styles.buttonArea}>
                 <Button
